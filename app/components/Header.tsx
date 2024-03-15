@@ -4,9 +4,12 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Hamburger from './Hamburger';
 import Image from "next/image";
+import { useSession } from 'next-auth/react';
+import { Box } from '@radix-ui/themes';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { status, data: session } = useSession();
 
     return (
         <header className="bg-gray-800 sm:flex sm:justify-between sm:px-4 sm:py-3 sm:items-center">
@@ -61,6 +64,14 @@ const Header: React.FC = () => {
                 <Link href="/contact" className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 sm:mt-0 sm:ml-2">Contact
                 </Link>
             </div>
+            <Box>
+              { status=== "authenticated" && (
+              <Link href="/api/auth/signout" className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 sm:mt-0 sm:ml-2">Log out</Link>
+              )}
+              { status=== "unauthenticated" && (
+                <Link href="/api/auth/signin" className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 sm:mt-0 sm:ml-2">Login</Link>
+              )}
+            </Box>
         </header>
     );
 };

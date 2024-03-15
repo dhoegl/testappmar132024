@@ -5,6 +5,7 @@ import { Theme } from "@radix-ui/themes";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import AuthProvider from './auth/Provider';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,13 +22,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Theme>
-          <Header />
-          <main>
-            {children}
+        <AuthProvider>
+          <Theme>
+            <Header />
+            <main>
+              {children}
             </main>
             <Footer />
-        </Theme>
+          </Theme>
+        </AuthProvider>
       </body>
     </html>
   );
