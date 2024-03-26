@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
 import "./globals.css";
 import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AuthProvider from './auth/Provider';
 
@@ -24,7 +25,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <Theme>
-            <Header />
+            {/* <Header /> */}
+            <Navbar />
             <main>
               {children}
             </main>
