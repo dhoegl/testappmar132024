@@ -13,7 +13,7 @@ p {
 .NavigationMenuRoot {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   width: 100vw;
   z-index: 1;
 }
