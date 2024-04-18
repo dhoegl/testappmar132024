@@ -13,7 +13,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="bg-gray-800 sm:flex sm:justify-between sm:px-4 sm:py-3 sm:items-center">
-    {/* <header className="bg-gray-800 flex items-center p-3"> */}
+      {/* <header className="bg-gray-800 flex items-center p-3"> */}
       <div className="flex items-center justify-between px-4 py-3 sm:p-0">
         <div>
           <Link href="/home">
@@ -31,17 +31,27 @@ const Header: React.FC = () => {
         </div>
       </div>
       <div className={`px-2 pt-2 pb-4 sm:flex sm:p-0 ${isOpen ? 'block' : 'hidden'}`}>
-        <Link href="/home" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">Home
-        </Link>
+        {status === "authenticated" && (
+          <Link href="/home" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">Home
+          </Link>
+        )}
+        {status === "authenticated" && (
         <Link href="/people" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">People
         </Link>
-        <Link href="/prayer" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">Prayer Requests
+        )}
+        {status === "authenticated" && (
+          <Link href="/prayer" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">Prayer Requests
         </Link>
-        <Link href="/about" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">About
+        )}
+        {status === "authenticated" && (
+          <Link href="/about" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">About
         </Link>
-        <Link href="/contact" className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 sm:mt-0 sm:ml-2">Contact
+        )}
+        {status === "authenticated" && (
+          <Link href="/contact" className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 sm:mt-0 sm:ml-2">Contact
         </Link>
-      </div>
+        )}
+        </div>
       <Box className='justify-end'>
         {status === "authenticated" && (
           <Link href="/api/auth/signout" className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 sm:mt-0 sm:ml-2">Log out</Link>
