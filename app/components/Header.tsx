@@ -36,22 +36,22 @@ const Header: React.FC = () => {
           </Link>
         )}
         {status === "authenticated" && (
-        <Link href="/people" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">People
-        </Link>
+            <Link href="/people" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">People
+            </Link>
         )}
         {status === "authenticated" && (
           <Link href="/prayer" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">Prayer Requests
-        </Link>
+          </Link>
         )}
         {status === "authenticated" && (
           <Link href="/about" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">About
-        </Link>
+          </Link>
         )}
         {status === "authenticated" && (
           <Link href="/contact" className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 sm:mt-0 sm:ml-2">Contact
-        </Link>
+          </Link>
         )}
-        </div>
+      </div>
       <Box className='justify-end'>
         {status === "authenticated" && (
           <Link href="/api/auth/signout" className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 sm:mt-0 sm:ml-2">Log out</Link>
