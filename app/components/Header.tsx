@@ -12,7 +12,7 @@ const Header: React.FC = () => {
   const { status, data: session } = useSession();
 
   return (
-    <header className="bg-gray-800 sm:flex sm:justify-between sm:px-4 sm:py-3 sm:items-center">
+    <header className="bg-gray-800 sm:flex sm:justify-start sm:px-4 sm:py-3 sm:items-center">
       {/* <header className="bg-gray-800 flex items-center p-3"> */}
       <div className="flex items-center justify-between px-4 py-3 sm:p-0">
         <div>
@@ -32,23 +32,23 @@ const Header: React.FC = () => {
       </div>
       <div className={`px-2 pt-2 pb-4 sm:flex sm:p-0 ${isOpen ? 'block' : 'hidden'}`}>
         {status === "authenticated" && (
-          <Link href="/home" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">Home
+          <Link href="/home" onClick={() => setIsOpen(!isOpen)} className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">Home
           </Link>
         )}
         {status === "authenticated" && (
-            <Link href="/people" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">People
+            <Link href="/people" onClick={() => setIsOpen(!isOpen)} className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">People
             </Link>
         )}
         {status === "authenticated" && (
-          <Link href="/prayer" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">Prayer Requests
+          <Link href="/prayer" onClick={() => setIsOpen(!isOpen)} className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">Prayer Requests
           </Link>
         )}
         {status === "authenticated" && (
-          <Link href="/about" className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">About
+          <Link href="/about" onClick={() => setIsOpen(!isOpen)} className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700">About
           </Link>
         )}
         {status === "authenticated" && (
-          <Link href="/contact" className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 sm:mt-0 sm:ml-2">Contact
+          <Link href="/contact" onClick={() => setIsOpen(!isOpen)} className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 sm:mt-0 sm:ml-2">Contact
           </Link>
         )}
       </div>
